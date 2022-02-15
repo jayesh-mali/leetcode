@@ -1,5 +1,22 @@
 class Solution {
     public int[] intersect(int[] nums1, int[] nums2) {
+        List<Integer> result = new ArrayList<>();
+        Map<Integer, Integer> map = new HashMap<>();
+        for(int num: nums1){
+            map.put(num, map.getOrDefault(num, 0)+1);
+        }
+        for(int num: nums2){
+            if(map.containsKey(num) && map.get(num)>0){
+                result.add(num);
+                map.put(num, map.get(num)-1);
+            }
+                
+        }
+        return result.stream().mapToInt(x->x).toArray();
+    }
+    
+    /*
+    public int[] intersect(int[] nums1, int[] nums2) {
         Arrays.sort(nums1);
         Arrays.sort(nums2);
         int i=0;
@@ -18,24 +35,5 @@ class Solution {
         }
         return result.stream().mapToInt(x->x).toArray();
     }
-    
-    /*
-    private boolean binarySearch(int[] nums, int key){
-        int low = 0;
-        int high = nums.length-1;
-        int mid;
-        while(low < high){
-            mid = low+(high-low)/2;
-            if(nums[mid] == key){
-                nums[mid] = -1;
-                return true;
-            }
-            if(nums[mid] < key){
-                low = mid+1;
-            }else{
-                high = mid-1;
-            }
-        }
-        return false;
-    }*/
+    */
 }
