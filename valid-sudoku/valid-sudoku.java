@@ -1,5 +1,6 @@
 class Solution {
     
+    /*
     public boolean isValidSudoku(char[][] board) {
         int size = board.length;
         Set<String> set = new HashSet<>();
@@ -16,9 +17,8 @@ class Solution {
         }
         return true;
     }
+    */
     
-    
-    /*
     public boolean isValidSudoku(char[][] board) {
         int size = board.length;
         for(int i=0; i<size; i++){
@@ -83,5 +83,5 @@ class Solution {
     private int getValue(char ch){
         return Character.getNumericValue(ch)-1;
     }
-    */
+
 }
