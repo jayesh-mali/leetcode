@@ -1,4 +1,24 @@
 class Solution {
+    
+    public boolean isValidSudoku(char[][] board) {
+        int size = board.length;
+        Set<String> set = new HashSet<>();
+        for(int i=0; i<size; i++){
+            for(int j=0; j<size; j++){
+                if(board[i][j]!='.'){
+                    String rowKey = "r-"+i+"-"+board[i][j];
+                    String colKey = "c-"+j+"-"+board[i][j];
+                    String rcKey =  i/3+"-"+j/3+"-"+board[i][j];
+                    if(!set.add(rowKey) || !set.add(colKey) || !set.add(rcKey))
+                        return false;
+                }
+            }
+        }
+        return true;
+    }
+    
+    
+    /*
     public boolean isValidSudoku(char[][] board) {
         int size = board.length;
         for(int i=0; i<size; i++){
@@ -63,4 +83,5 @@ class Solution {
     private int getValue(char ch){
         return Character.getNumericValue(ch)-1;
     }
+    */
 }
