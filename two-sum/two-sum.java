@@ -8,6 +8,6 @@ class Solution {
             }
             hash.put(nums[i],i);
         }
-        return new int[2];
+        throw new IllegalArgumentException("No two sum solution");
     }
 }
