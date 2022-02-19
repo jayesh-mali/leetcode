@@ -9,7 +9,8 @@ class Solution {
                 nums[i-zeroCount] = nums[i];
             }
         }
-        for(int i=(nums.length - zeroCount); i<nums.length; i++){
+        int start = nums.length - zeroCount;
+        for(int i=start; i<nums.length; i++){
             nums[i] = 0;
         }
     }
